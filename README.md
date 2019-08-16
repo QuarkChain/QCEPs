@@ -1,2 +1,4 @@
 # QCEPs
-QuarkChain Evolution Proposals
+
+QuarkChain Evolution Proposals (QCEPs) and more.
+
