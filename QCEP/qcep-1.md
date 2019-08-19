@@ -132,7 +132,7 @@ For future light clients who are only interested in root chain, they will be req
 
 ## Implementation
 
-One implementation-specific question is how the staking will be deployed and baked into the root chain consensus.
+One implementation-specific question is how the staking contract will be deployed and baked into the root chain consensus.
 
 A simple way is to use `CREATE2` with a pre-determined contract creator address and init code, so the contract address will be known in advance. Then, when chain 0 shard 0 checks the stakes, it will return 0 if the contract is not yet deployed.
 
