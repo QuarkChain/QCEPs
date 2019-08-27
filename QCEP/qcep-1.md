@@ -42,7 +42,7 @@ contract RootChainPoSWStaking {
 
     function setSigner(address signer) external payable {
         Stake storage stake = stakes[msg.sender];
-        require(!stake.unlocked, "should only set miner address in locked state");
+        require(!stake.unlocked, "should only set signer in locked state");
 
         stake.signer = signer;
         addStakes(stake, msg.value);
@@ -128,7 +128,7 @@ When the staker is in the unlocked state:
 
 The root chain keeps track of chain 0 shard 0's blockchain, and when it's creating a new block, it will use that shard's latest minor block **up until the current root block** as the state to evaluate the coinbase address's stakes, no matter the producing root block includes that shard's latest header or not.
 
-Then root chain will make an intra-cluster RPC call to chain 0 shard 0 as `getRootChainStakes` with the recipient and minor block hash as the arguments and get back the stakes along with recorded miner address:
+Then root chain will make an intra-cluster RPC call to chain 0 shard 0 as `getRootChainStakes` with the recipient and minor block hash as the arguments and get back the stakes along with recorded signer address:
 
 ```python
 class GetRootChainStakesRequest:
