@@ -27,7 +27,7 @@ contract RootChainPoSWStaking {
         bool unlocked;
         uint256 withdrawableTimestamp;
         uint256 amount;
-        address minerAddress;
+        address signer;
     }
 
     mapping (address => Stake) public stakes;
@@ -40,11 +40,11 @@ contract RootChainPoSWStaking {
         }
     }
 
-    function setMinerAddress(address minerAddress) external payable {
+    function setSigner(address signer) external payable {
         Stake storage stake = stakes[msg.sender];
         require(!stake.unlocked, "should only set miner address in locked state");
 
-        stake.minerAddress = minerAddress;
+        stake.signer = signer;
         addStakes(stake, msg.value);
     }
 
@@ -96,13 +96,13 @@ contract RootChainPoSWStaking {
             return (0, address(0));
         }
 
-        address minerAddress;
-        if (stake.minerAddress == address(0)) {
-            minerAddress = staker;
+        address signer;
+        if (stake.signer == address(0)) {
+            signer = staker;
         } else {
-            minerAddress = stake.minerAddress;
+            signer = stake.signer;
         }
-        return (stake.amount, minerAddress);
+        return (stake.amount, signer);
     }
 
 }
@@ -110,12 +110,12 @@ contract RootChainPoSWStaking {
 
 This contract gives the root chain an access to determine the miner's stakes if the miner willingly *locks* those stakes to participate the PoSW consensus and have the potentially lower difficulty.
 
-For each staker, there are two states in the contract: **locked** and **unlocked**. Only when the staker is in the locked state, his/her stakes will be taken into account when used as a coinbase address to produce a root block. To make sure no malicious miner can impersonate an address with large amounts of tokens, we also allow staker to provide a hot-wallet `minerAddress`, and will require the mined root block to have a signature matching the recorded miner address in the contract. If such address is not provided, it will default to the staker's address. This mechanism is similar to our current [proof-of-guardian](https://github.com/QuarkChain/pyquarkchain/wiki/Ethash-with-Guardian) to ensure the safety of mainnet during the early stage.
+For each staker, there are two states in the contract: **locked** and **unlocked**. Only when the staker is in the locked state, his/her stakes will be taken into account when used as a coinbase address to produce a root block. To make sure no malicious miner can impersonate an address with large amounts of tokens, we also allow staker to provide a hot-wallet `signer` address, and will require the mined root block to have a signature matching the recorded address in the contract. If such address is not provided, it will default to the staker's address. This mechanism is similar to our current [proof-of-guardian](https://github.com/QuarkChain/pyquarkchain/wiki/Ethash-with-Guardian) to ensure the safety of mainnet during the early stage.
 
 When the staker is in the locked state (default state):
 
 1. the staker can increase the stakes by directly sending QKC to the contract, and will be seen by the root chain once the including minor block is included by the root chain;
-1. the staker can set the miner address that is used to sign the submitted root block, with potentially more stakes (the function is `payable`);
+1. the staker can set the signer address that is used to sign the submitted root block, with potentially more stakes (the function is `payable`);
 1. the staker can **unlock** the stakes, which will be seen by the root chain as forfeiting the potential PoSW benefits.
 
 When the staker is in the unlocked state:
@@ -141,15 +141,15 @@ class GetRootChainStakesResponse:
   FIELDS = [
     ("error_code", uint32),
     ("stakes", biguint),
-    ("miner_address", FixedSizeBytesSerializer(20)),
+    ("signer", FixedSizeBytesSerializer(20)),
   ]
 ```
 
-The node will then verify `RootBlockHeader.signature` with the returned miner address (note: NOT the coinbase address which points to the staker, but the miner address from the RPC call), and only proceed PoSW if matches, otherwise treat it as a normal root block work submission.
+The node will then verify `RootBlockHeader.signature` with the returned signer address (note: NOT the coinbase address which points to the staker, but the one from the RPC call), and only proceed PoSW if matches, otherwise treat it as a normal root block work submission.
 
 Then it will compare the stakes with the PoSW configuration and determine whether the root chain miner should have lower block difficulty.
 
-Note that for all other shards (not chain 0 shard 0), this RPC should be a no-op and return error.
+Note that for all other shards (not chain 0 shard 0), this RPC should return an error.
 
 ## Backwards Compatibility
 
