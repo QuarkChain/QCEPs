@@ -206,7 +206,7 @@ contract Contract {
 
 Note pre-compiled contract can only succeed once.
 
-Finally the deployed contract address will be `0x53345c04cfb710a9c4eeae36e4a554547ec1b2350000cDdD` (chain 0 shard 0).
+Finally the deployed contract address will be `0x53345c04cfb710a9c4eeae36e4a554547ec1b23500000001` (in chain 0 shard 0).
 
 ## Appendix
 
