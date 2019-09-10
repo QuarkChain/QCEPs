@@ -167,21 +167,7 @@ A simple way is to use `CREATE2` with a pre-determined contract creator address 
 
 In this way, after EVM is enabled, even if the staking contract is not immediately available, consensus will not break.
 
-A pre-compiled contract is implemented solely to deploy the staking contract ([QuarkChain/pyquarkchain#725](https://github.com/QuarkChain/pyquarkchain/pull/725)), which calls `CREATE2` using the special address as `msg.sender`, 0 as the salt, along with staking contract (bytecode will be attached in the appendix section). Therefore the staking contract address should be deterministic. Here uses python to calculate the address:
-
-```
-In [1]: from quarkchain.utils import sha3_256
-
-In [2]: pre_compile_addr = "0x000000000000000000000000000000514b430003"
-
-In [3]: salt = 0
-
-In [4]: code = "0x..."  # see appendix
-
-In [5]: sha3_256(bytes.fromhex("ff" + pre_compile_addr[2:] + salt.to_bytes(32, byteorder='big').hex() + sha3_256(bytes.fromhex(code[2:])).hex()))[12:].hex()
-Out[5]: '53345c04cfb710a9c4eeae36e4a554547ec1b235'
-```
-
+A pre-compiled contract is implemented solely to deploy the staking contract ([QuarkChain/pyquarkchain#725](https://github.com/QuarkChain/pyquarkchain/pull/725)), which will deploy to the predetermined address.
 
 The following contract will invoke the pre-compiled contract and trigger the staking contract deployment:
 
@@ -206,7 +192,7 @@ contract Contract {
 
 Note pre-compiled contract can only succeed once.
 
-Finally the deployed contract address will be `0x53345c04cfb710a9c4eeae36e4a554547ec1b23500000001` (in chain 0 shard 0).
+Finally the deployed contract address will be `0x514b43000000000000000000000000000000000100000001` (chain 0 shard 0).
 
 ## Appendix
 
