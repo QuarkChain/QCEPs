@@ -1,7 +1,7 @@
 ---
 qcep: 2
 title: Improved Qkchash with LLRB rotation statistics (QkchashX)
-author: @junjiah
+author: @qizhou
 status: Draft
 created: 2019-09-11
 ---
