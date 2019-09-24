@@ -2,7 +2,7 @@
 qcep: 1
 title: PoSW staking for mining root chain
 author: @qizhou, @junjiah
-status: Draft
+status: Final
 created: 2019-08-16
 ---
 
