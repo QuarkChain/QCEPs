@@ -12,7 +12,7 @@ Precompiled contracts for interacting with multi-native-token are required in or
 ## Specification
 Add precompiled contracts for querying current token ID and creating messages with different transfer token ID.
 
-Address of  `current_mnt_id`: 0x514b430001
+Address of  `current_mnt_id`: 0x514b430001 \
 Address of `transfer_mnt`: 0x514b430002
 
 ### Querying Current Token ID
@@ -26,14 +26,12 @@ Output: If the length of the input is less than 96 bytes or there is not enough 
 ```
 In the input, the first three parameters are all 32-byte big-endian numbers which take up 96 bytes in total. So the length of the input should be at least 96 bytes and the remaining part will be encoded as message data.
 
-Note that the EVM will reject the contract call if the given transfer_token_id is non default and this token-id is never queried.
+Note that the EVM will reject the contract call if the given `transfer_token_id` is non default and this token-id is never queried.
 
 ### Gas Costs
 - Gas cost for `current_mnt_id`: 3
 - Gas cost for `transfer_mnt`: 3
 
-## Rationale
-The rationale.
 
 ## Backwards Compatibility
 As with the introduction of any precompiled contract, contracts that already use the given addresses will change their semantics. 
@@ -52,9 +50,9 @@ contract Contract {
     uint256 private tokenId;
     
     function get_cur_token_id() public returns (uint256[1] memory out) {
-        uint256[2] memory x;
+        uint256[1] memory out;
         assembly {
-            let y := call(100, 0x514b430001, 0, x, 0x40, out, 0x20)
+            let y := call(100, 0x514b430001, 0, 0, 0x00, out, 0x20)
             switch y case 0 {
                 revert(0, 0)
             }
