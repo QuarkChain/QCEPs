@@ -40,6 +40,7 @@ In `MNT`, the implementation will checkout the gas of current message and return
 The following contract will invoke the precompiled contract and trigger the querying of current token ID:
 ```
 pragma solidity >=0.4.22 <0.6.0;
+
 contract Contract {
     uint256 private tokenId;
 
