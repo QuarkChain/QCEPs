@@ -15,7 +15,7 @@ Add precompiled contracts for querying current multi-native-token ID (`MNT`) and
 - Address of `MNT`: 0x514b430001
 - Address of `APPLY_MNT`: 0x514b430002
 
-### Querying Current Token ID
+### Query Current Token ID
 The precompiled contract requires no input and returns current message’s token ID if there is enough gas.
 
 ### Transfer Multi-Native-Token
