@@ -12,8 +12,8 @@ Precompiled contracts for interacting with multi-native-token are required in or
 ## Specification
 Add precompiled contracts for querying current multi-native-token ID (`MNT`) and applying new messages with different multi-native-token ID (`APPLY_MNT`).
 
-Address of `MNT`: 0x514b430001 \
-Address of `APPLY_MNT`: 0x514b430002
+- Address of `MNT`: 0x514b430001
+- Address of `APPLY_MNT`: 0x514b430002
 
 ### Querying Current Token ID
 The precompiled contract requires no input and returns current message’s token ID if there is enough gas.
