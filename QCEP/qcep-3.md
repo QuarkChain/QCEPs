@@ -2,7 +2,7 @@
 qcep: 3
 title: Precompiled Contracts for interacting with Multi-Native-Token
 author: @hanyunx
-status: Draft
+status: Final
 created: 2019-09-20
 ---
 
@@ -102,7 +102,7 @@ contract Contract {
 ```
 
 \
-Note that if the given `tokenId` is non-default **AND** current token id is never queried, EVM will **REJECT** the contract call. That is, the tracsaction of executing relevant function on a deployed contract will **FAIL**. The current token id is required to be queried before applying message with non-default token id in case the deployed contract doesn't accept the given non-default token.
+It's very important to note that if the given `tokenId` is non-default **AND** current token id is never queried, EVM will **REJECT** the contract call.
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
