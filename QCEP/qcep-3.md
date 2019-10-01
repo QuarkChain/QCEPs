@@ -15,7 +15,7 @@ Add precompiled contracts for querying current multi-native-token ID (`MNT`) and
 - Address of `MNT`: 0x514b430001
 - Address of `APPLY_MNT`: 0x514b430002
 
-### Querying Current Token ID
+### Query Current Token ID
 The precompiled contract requires no input and returns current message’s token ID if there is enough gas.
 
 ### Transfer Multi-Native-Token
@@ -58,7 +58,8 @@ contract Contract {
 
 \
 In `APPLY_MNT`, The length of input data should be no less than 96 bytes, where the target code address , token id, and value are all 32-byte-long and the rest part of input should be the message data.
-After encoding the input, a new message can be created and applied. \
+After encoding the input, a new message can be created and applied.
+
 The function `applyMNT` in the following contract is an example of invoking the precompiled contract `APPLY_MNT`. In this example, when `APPLY_MNT` is executed, a new message with the given token id will be created and then applied. Since the message data is assigned as encoded `setTokenId()`, function `setTokenId` will be called when the new message is applied. Of particular note is `MNT` is called in this function to query current token id, where the queried result is precisely the token id passed to `applyMNT`. In this way, it can be guaranteed that the value of `_tokenId` passed to `applyMNT` has been queried before new message with this token id is sucessfully applied, which is essential to non-default token.
 ```
 pragma solidity >=0.4.22 <0.6.0;
@@ -69,6 +70,7 @@ contract Contract {
     function setTokenId() public payable {
         // make sure token ID queried
         uint256[1] memory out;
+        
         assembly {
             // call precompiled contract MNT
             if iszero(call(100, 0x514b430001, 0, 0, 0x00, out, 0x20)){
