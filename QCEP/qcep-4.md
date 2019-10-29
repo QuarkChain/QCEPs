@@ -16,8 +16,8 @@ The contract has two parties: stakers (potentially **many**), and **one** miner.
 
 The incentive model has two folds:
 
-1. stakers are willing to provide the funds and earn interests (which depends on the hash power of the miner);
-1. the miner will experience higher effective hash power since PoSW will adjust the block difficulty (which depends on the amount of stakes).
+1. stakers are willing to provide the funds to earn interests (which depends on the hash power of the miner);
+1. the miner will experience higher effective hash power since PoSW will lower the block difficulty (which depends on the amount of stakes).
 
 ## Implementation
 
@@ -27,6 +27,8 @@ The contract has following main APIs:
 - `withdrawStakes(amount)` for stakers to withdraw (including profit)
 - `withdrawFee` for miners to get mining fees
 - `updateMiner` for miners to update address
+
+During the mining process, block rewards will be sent to this contract, and counted as interests for stakers. Part of the whole profit (`minerFee`) will be distributed to the miner, while others will be proportionally distributed to stakers according to the amount of stakes.
 
 Following is a reference implementation of the staking contract.
 
