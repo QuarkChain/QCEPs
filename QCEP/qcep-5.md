@@ -41,15 +41,15 @@ Note these parameters can be updated later on.
 
 1. After the system contract becomes live (i.e. deployed), the supervisor is required to set auction parameters and resume the auction at the beginning.
 
-2. Each round of auction is started when the first valid bidding for the current round is placed, and will end after `duration` time from this point unless automatic extension happens.
+1. Each round of auction is started when the first valid bidding for the current round is placed, and will end after `duration` time from this point unless automatic extension happens.
 
-3. Bidders place their bids with the price they would like to pay, the token ID they want and the target round number. One bidder can bid multiple times. The `value` they set in a transaction can be taken as the bidding deposit which will be accumulated in the system. For example, if a user places a bid with `value` of 5 QKC in round 2 but does not win in this round, and later places another bid with `value` of 10 QKC in round 4, the balance will be 15 QKC available in total, which means the bidding price can be as high as 15 QKC.
+1. Bidders place their bids with the price they would like to pay, the token ID they want and the target round number. One bidder can bid multiple times. The `value` they set in a transaction can be taken as the bidding deposit which will be accumulated in the system. For example, if a user places a bid with `value` of 5 QKC in round 2 but does not win in this round, and later places another bid with `value` of 10 QKC in round 4, the balance will be 15 QKC available in total, which means the bidding price can be as high as 15 QKC.
 
     To make a successful bid, the bid price should be no less than the minimum bid price set by the supervisor, and should be higher than the current highest bid price meeting the minimum increment requirement.
 
-4. One round of auction can be settled in two ways after the end time. One is to be explicitly settled by any user, or, it will be settled automatically when someone places a valid bid for the next round.
+1. One round of auction can be settled in two ways after the end time. One is to be explicitly settled by any user, or, it will be settled automatically when someone places a valid bid for the next round.
 
-5. After the auction is settled, the winner becomes the owner of the new token. The equivalent amount of QKC with the bidding price will be burnt from the owner’s bidding balance, while the surplus bidding balance can be either withdrawn or used for future auctions. The owner can mint the auctioned new token, transfer ownership, etc.
+1. After the auction is settled, the winner becomes the owner of the new token. The equivalent amount of QKC with the bidding price will be burnt from the owner’s bidding balance, while the surplus bidding balance can be either withdrawn or used for future auctions. The owner can mint the auctioned new token, transfer ownership, etc.
 
 ### Withdrawing bidding deposit
 
@@ -77,7 +77,7 @@ As an exception, the supervisor can whitelist some reserved token IDs for auctio
 
 #### Returns
 
-    None
+None
 
 ### setAuctionParams
 
@@ -93,7 +93,7 @@ As an exception, the supervisor can whitelist some reserved token IDs for auctio
 
 #### Returns
 
-    None
+None
 
 ### pauseAuction
 
@@ -101,11 +101,11 @@ As an exception, the supervisor can whitelist some reserved token IDs for auctio
 
 #### Parameters
 
-    None
+None
 
 #### Returns
 
-    None
+None
 
 ### resumeAuction
 
@@ -174,7 +174,7 @@ Users can place their bids by calling `bidNewToken` method as long as the auctio
 
 #### Returns
 
-    None
+None
 
 ### endAuction
 
@@ -182,11 +182,11 @@ By calling `endAuction`, users can settle a round of auction after its end time.
 
 #### Parameters
 
-    None
+None
 
 #### Returns
 
-    None
+None
 
 ### mintNewToken
 
@@ -200,7 +200,7 @@ Owners can mint their native tokens by calling `mintNewToken`. A token can be mi
 
 #### Returns
 
-    None
+None
 
 ### transferOwnership
 
@@ -213,7 +213,7 @@ Owners can transfer their ownership or renounce their ownership by free will by 
 1. `newOwner`, address - address of the new owner, ownership of the token is renounced if the address is 0
 
 #### Returns
-    None
+None
 
 ### withdraw
 
@@ -221,11 +221,11 @@ Users can withdraw all their balance remained in the auction system as long as t
 
 #### Parameters
 
-    None
+None
 
 #### Returns
 
-    None
+None
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
