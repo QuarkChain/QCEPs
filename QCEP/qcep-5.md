@@ -59,7 +59,7 @@ Note these parameters can be updated later on.
 
 ### Non-reserved token and whitelist of reserved token
 
-This auction system is applicable for non-reserved tokens, whose names can be a mix of capital letters and numbers with length between 5 and 12. Token ID, the unique identifier of a token in the auction system, is the decimal format of token name which can be taken as a numeral system with base number of 36 (`0–9` followed by `A–F`) . As a result, the auctioned token ID should be larger than 1727603 which is the decimal format of `ZZZZ`.
+This auction system is applicable for non-reserved tokens, whose names can be a mix of capital letters and numbers with length between 5 and 12. Token ID, the unique identifier of a token in the auction system, is the decimal format of token name which can be taken as a numeral system with base number of 36 (`0`-`9` followed by `A`-`Z`) . As a result, the auctioned token ID should be larger than 1727603 which is the decimal format of `ZZZZ`.
 
 As an exception, the supervisor can whitelist some reserved token IDs for auction.
 
