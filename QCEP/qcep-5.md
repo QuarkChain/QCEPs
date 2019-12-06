@@ -139,7 +139,7 @@ None
 
 #### Returns
 
-1. `tokenId` - token id proposed in the highest bid
+1. `tokenId` - token ID proposed in the highest bid
 1. `newTokenPrice` - bid price of the highest bid
 1. `bidder` - address of the highest bidder
 1. `round` - current round number of the auction
@@ -151,7 +151,7 @@ Returns information related to queried token.
 
 #### Parameters
 
-1. `tokenId`, uint128 - token id of the token to be queried
+1. `tokenId`, uint128 - token ID of the token to be queried
 
 #### Returns
 
@@ -177,8 +177,8 @@ Users can place their bids by calling `bidNewToken` method as long as the auctio
 
 #### Parameters
 
-1. `tokenId`, uint128 - id of the token to be auctioned
-1. `bidPrice`, uint128 - bid price one would like to offer for the token id proposed
+1. `tokenId`, uint128 - ID of the token to be auctioned
+1. `bidPrice`, uint128 - bid price one would like to offer for the token ID proposed
 1. `round`, uint64 - number of target round of auction
 
 #### Returns
@@ -203,7 +203,7 @@ Owners can mint their native tokens by calling `mintNewToken`. A token can be mi
 
 #### Parameters
 
-1. `tokenId`, uint128 - id of the token to be minted
+1. `tokenId`, uint128 - ID of the token to be minted
 1. `amount`, uint256 - amount of the token to be minted
 
 #### Returns
@@ -216,7 +216,7 @@ Owners can transfer their ownership or renounce their ownership by free will by 
 
 #### Parameters
 
-1. `tokenId`, uint128 - id of the token whose owner will be changed
+1. `tokenId`, uint128 - ID of the token whose owner will be changed
 1. `newOwner`, address - address of the new owner, ownership of the token is renounced if the address is 0
 
 #### Returns
