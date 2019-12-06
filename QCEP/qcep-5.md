@@ -65,6 +65,19 @@ As an exception, the supervisor can whitelist some reserved token IDs for auctio
 
 ## API Methods
 
+- [whitelistTokenId](#whitelisttokenid)
+- [setAuctionParams](#setauctionparams)
+- [pauseAuction](#pauseauction)
+- [resumeAuction](#resumeauction)
+- [getAuctionState](#getauctionstate)
+- [getNativeTokenInfo](#getnativetokeninfo)
+- [isPaused](#ispaused)
+- [bidNewToken](#bidnewtoken)
+- [endAuction](#endauction)
+- [mintNewToken](#mintnewtoken)
+- [transferOwnership](#transferownership)
+- [withdraw](#withdraw)
+
 ### whitelistTokenId
 
 *Only* for the supervisor to set the whitelist for reserved tokens.
