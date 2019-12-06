@@ -72,7 +72,6 @@ As an exception, the supervisor can whitelist some reserved token IDs for auctio
 #### Parameters
 
 1. `tokenId`, uint128 - ID of the token to be set
-
 1. `whitelisted`, bool - true if the token ID should be available for auction, otherwise should be unavailable
 
 #### Returns
@@ -86,9 +85,7 @@ None
 #### Parameters
 
 1. `minPriceInQKC`, uint64 - minimum bid price in QKC
-
 1. `minIncrementInPercent`, uint64 - minimum increment in percentage
-
 1. `duration`, 64 uint - duration of a round of auction
 
 #### Returns
@@ -167,8 +164,7 @@ Users can place their bids by calling `bidNewToken` method as long as the auctio
 
 #### Parameters
 
-1.`tokenId`, uint128 - id of the token to be auctioned
-
+1. `tokenId`, uint128 - id of the token to be auctioned
 1. `bidPrice`, uint128 - bid price one would like to offer for the token id proposed
 1. `round`, uint64 - number of target round of auction
 
@@ -195,7 +191,6 @@ Owners can mint their native tokens by calling `mintNewToken`. A token can be mi
 #### Parameters
 
 1. `tokenId`, uint128 - id of the token to be minted
-
 1. `amount`, uint256 - amount of the token to be minted
 
 #### Returns
@@ -209,7 +204,6 @@ Owners can transfer their ownership or renounce their ownership by free will by 
 #### Parameters
 
 1. `tokenId`, uint128 - id of the token whose owner will be changed
-
 1. `newOwner`, address - address of the new owner, ownership of the token is renounced if the address is 0
 
 #### Returns
