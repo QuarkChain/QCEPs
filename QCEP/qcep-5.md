@@ -99,7 +99,7 @@ None
 
 1. `minPriceInQKC`, uint64 - minimum bid price in QKC
 1. `minIncrementInPercent`, uint64 - minimum increment in percentage
-1. `duration`, 64 uint - duration of a round of auction
+1. `duration`, uint64 - duration of a round of auction
 
 #### Returns
 
