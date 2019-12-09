@@ -2,7 +2,7 @@
 qcep: 5
 title: System Contract for Non-Reserved Native Token Management
 author: @hanyunx, @junjiah
-status: Draft
+status: Final
 created: 2019-11-26
 ---
 
