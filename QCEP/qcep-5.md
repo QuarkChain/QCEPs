@@ -17,7 +17,7 @@ Following roles are involved in the native token management system:
 - **Supervisor**: the one who sets the auction parameters, initiates the auction process and has access to pausing and resuming the auction. Supervisorship can be transferred.
 
 - **Token Owners**: winners of token auctions, who then have the ownership of the native tokens and can start minting. Ownership can be transferred. Note that the owner can renounce the ownership by transferring it to a zero address.
-- **Bidders**: anyone taking part in the auction by placing.
+- **Bidders**: anyone taking part in the auction by placing bids.
 
 ### Auction Type
 
