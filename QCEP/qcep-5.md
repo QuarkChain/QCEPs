@@ -8,7 +8,7 @@ created: 2019-11-26
 
 ## Simple Summary
 
-This QCEP proposes a mechanism for users to auction / issue native tokens by interacting with a system contract.
+This QCEP proposes a mechanism for users to auction / issue native tokens by interacting with a system contract. Note that this system contract will only work on **shard 0**.
 
 ## Specification
 
@@ -119,7 +119,7 @@ None
 
 ### resumeAuction
 
-*Only* for the supervisor to resume the auction. Users can continue to bid once. `resumeAuction` is called.
+*Only* for the supervisor to resume the auction. Users can continue to bid after `resumeAuction` is called.
 
 #### Parameters
 
@@ -224,7 +224,7 @@ None
 
 ### withdraw
 
-Users can withdraw all their balance remained in the auction system as long as they are not the highest bidder of the auction at the time of query.
+Users can withdraw all their balances remained in the auction system as long as they are not the highest bidder of the auction at the time of the action.
 
 #### Parameters
 
