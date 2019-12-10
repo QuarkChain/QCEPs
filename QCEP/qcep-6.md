@@ -67,7 +67,7 @@ None
 
 ### proposeNewExchangeRate
 
-Proposing a new exchange rate the a native token.
+Propose a new exchange rate the a native token.
 
 #### Parameters
 
