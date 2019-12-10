@@ -38,7 +38,7 @@ Some administrative flags:
 Note that step 5 happens in QuarkChain’s consensus, essentially it means when using native token to pay gas a) the transaction sender’s native token will be transferred to the system contract, under the record of the token admin; b) corresponding amount of QKC will be deducted from the contract and be consumed by the miner.
 
 ### Refund
-- To prevent excessive arbitrage, the highest exchange rate proposer can set the refund percentage which is between 10% and 100%, which mandates the amount of converted QKC for refund if the transaction doesn’t use up all the gas. The default value is 50%. The rest will be burnt to zero address.
+- To prevent excessive arbitrage, only the highest exchange rate proposer (the *admin*) can set the refund percentage which should be between 10% and 100%, which mandates the amount of converted QKC for refund if the transaction doesn’t use up all the gas. The default value is 50%. The rest will be burnt to zero address.
 - For a cross-shard transaction, the refund percentage only depends on the value in the source shard.
 
 ## API Methods
