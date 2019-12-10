@@ -11,9 +11,9 @@ This QCEP proposes using a system contract to provide utility values for native 
 
 
 ## Specification
-In each shard, any person can interact with the general native token manager system contract to propose an exchange rate that will be used to convert the native tokens to the corresponding amount of QKC to pay for transaction fees, for any transaction using that token as gas (`gas_token_id`).
+In each shard, any user can interact with the general native token manager system contract to propose an exchange rate that will be used to convert the native tokens to the corresponding amount of QKC to pay for transaction fees, for any transaction using that token as gas (`gas_token_id`).
 
-The exchange rate proposal process is similar to an English auction: for any token, the highest exchange rate will be applied, while the proposer (hereinafter referred to as admin) should also deposit a certain amount of QKC as the gas reserve. When executing the transaction, the blockchain will query the exchange rate from the system contract and deduct the QKC reserve accordingly.
+The exchange rate proposal process is similar to an English auction: for any token, the highest exchange rate will be applied, while the proposer (hereinafter referred to as *admin*) should also deposit a certain amount of QKC as the gas reserve. When executing the transaction, the blockchain will query the exchange rate from the system contract and deduct the QKC reserve accordingly.
 
 
 ### Parameters
@@ -27,7 +27,7 @@ Some administrative flags:
 - Supervisor: an account responsible for early-stage administrative works such as setting parameters
 - Require token registration: whether to require token being registered before proposing exchange rates and functioning as gas
 
-### Gas Reserve Proposing Process
+### Gas Reserve Exchange Rate Proposal Process
 1. Deploy the general token management system contract with reasonable parameters.
 1. To make a native token available for paying gas, register through the contract’s `registerToken` method with that particular native token.
 1. Anyone can propose an exchange rate for a token and provide liquidity with QKC as gas reserves (greater than `minGasReserveInit`).
