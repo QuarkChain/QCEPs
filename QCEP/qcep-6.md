@@ -24,7 +24,7 @@ Following parameters should be set by the supervisor:
 
 Some administrative flags:
 
-- Supervisor: an account responsible for early-stage administrative works such as setting parameters
+- Supervisor: an account responsible for early-stage administrative work such as setting parameters
 - Require token registration: whether to require token being registered before proposing exchange rates and functioning as gas
 
 ### Gas Reserve Exchange Rate Proposal Process
@@ -32,7 +32,7 @@ Some administrative flags:
 1. To make a native token available for paying gas, register through the contract’s `registerToken` method with that particular native token.
 1. Anyone can propose an exchange rate for a token and provide liquidity with QKC as gas reserves (greater than `minGasReserveInit`).
 1. The highest exchange rate proposer will be the token admin, in the meantime the QKC gas reserve will be locked to provide liquidity. The other proposers can withdraw QKC at any time.
-1. Transactions using the aforementioned native tokens will automatically convert to QKC (for miners), while deducting the gas reserve from the contract and adding native token balances in the contract for the token admin. The admin can a) withdraw those native tokens at any time; b) deposit more QKC as gas reserve.
+1. Transactions using the aforementioned native tokens will automatically convert the gas tokens to QKC (for miners), while deducting the gas reserve from the contract and adding native token balances in the contract for the token admin. The admin can a) withdraw those native tokens at any time; b) deposit more QKC as gas reserve.
 1. Other people can become admins by either providing a higher exchange rate, or wait until the current admin’s gas reserves drops below `minGasReserveMaintain` and then anyone can outbid with arbitrary exchange rates.
 
 Note that step 5 happens in QuarkChain’s consensus, essentially it means when using native token to pay gas a) the transaction sender’s native token will be transferred to the system contract, under the record of the token admin; b) corresponding amount of QKC will be deducted from the contract and be consumed by the miner.
