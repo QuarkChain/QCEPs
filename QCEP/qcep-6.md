@@ -2,7 +2,7 @@
 qcep: 6
 title: System Contract for General Native Token Management
 author: @junjiah
-status: Draft
+status: Final
 created: 2019-12-06
 ---
 
