@@ -16,10 +16,10 @@ The targeted network difficulty will match Ethereum mainnet's as of the time of 
 
 In the configuration for full nodes, will have four more fields in `POSW_CONFIG`:
 
-1. `BOOST_TIMESTAMP`: timestamp to enable boost (first-time increase DIFF_DIVIDER)
-2. `BOOST_MULTIPLIER`_PER_STEP: multiplier for `DIFF_DIVIDER` for each step (i.e. 2x)
-3. `BOOST_STEPS`: number of steps to increase DIFF_DIVIDER (i.e. 10)
-4. `BOOST_STEP_INTERVAL`: interval of applying next MULTIPLIER
+1. `BOOST_TIMESTAMP`: timestamp to enable boost (first-time increase DIFF_DIVIDER), set BOOST_TIMESTAMP to 0 mean disable this feature;
+2. `BOOST_MULTIPLIER_PER_STEP`: multiplier for `DIFF_DIVIDER` for each step (i.e. 2x);
+3. `BOOST_STEPS`: number of steps to increase DIFF_DIVIDER (i.e. 10);
+4. `BOOST_STEP_INTERVAL`: interval of applying next MULTIPLIER.
 
 Therefore the new DIFF_DIVIDER equation becomes
 ```
