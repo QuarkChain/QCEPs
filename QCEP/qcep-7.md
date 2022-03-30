@@ -23,13 +23,19 @@ In the configuration for full nodes, will have four more fields in `POSW_CONFIG`
 
 Therefore the new DIFF_DIVIDER equation becomes
 ```
-if block.timestamp >= BOOST_TIMESTAMP:
+if BOOST_TIMESTAMP > 0 && block.timestamp >= BOOST_TIMESTAMP:
    DIFF_DIVIDER *= BOOST_MULTIPLIER_PER_STEP ** min(((block.timestamp - BOOST_TIMESTAMP) // BOOST_STEP_INTERVAL) + 1, BOOST_STEPS)
 ```
 
 ## Rationale
 
 Those 4 parameters will lead to smoother difficulty adjustments.
+
+## Mainnet Values  
+    "BOOST_TIMESTAMP": 1649736000,
+    "BOOST_MULTIPLIER_PER_STEP": 2,
+    "BOOST_STEPS": 13,
+    "BOOST_STEP_INTERVAL": 86400
 
 ## Backwards Compatibility
 
